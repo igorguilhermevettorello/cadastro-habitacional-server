@@ -16,10 +16,10 @@
     "logging": true
   },
   "production": {
-    "username": "bae2ec6913efd3",
+    "username": "hab_29c6f15",
     "password": "af9ecabd",
-    "database": "heroku_29c6f15d3273e1e",
-    "host": "us-cdbr-iron-east-05.cleardb.net",
+    "database": "hab_29c6f15",
+    "host": "hab_29c6f15.mysql.dbaas.com.br",
     "dialect": "mysql",
     "logging": true
   }

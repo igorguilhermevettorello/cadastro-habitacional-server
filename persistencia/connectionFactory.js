@@ -28,10 +28,10 @@ function createDBConnection() {
 
   if (process.env.NODE_ENV == 'production') {
     return mysql.createConnection({
-      host: 'us-cdbr-iron-east-05.cleardb.net',
-      user: 'bae2ec6913efd3',
+      host: 'hab_29c6f15.mysql.dbaas.com.br',
+      user: 'hab_29c6f15',
       password: 'af9ecabd',
-      database: 'heroku_29c6f15d3273e1e',
+      database: 'hab_29c6f15',
       multipleStatements: true
     });
   }
