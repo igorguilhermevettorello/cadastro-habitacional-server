@@ -28,10 +28,10 @@ function createDBConnection() {
 
   if (process.env.NODE_ENV == 'production') {
     return mysql.createConnection({
-      host: 'hab_29c6f15.mysql.dbaas.com.br',
-      user: 'hab_29c6f15',
-      password: 'af9ecabd',
-      database: 'hab_29c6f15',
+      host: 'host',
+      user: 'user',
+      password: 'password',
+      database: 'database',
       multipleStatements: true
     });
   }

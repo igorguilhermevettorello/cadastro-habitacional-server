@@ -2,3 +2,4 @@ public/pdf/*
 uploads/*
 config/config-old.json
 persistencia/connectionFactory-old.js
+persistencia/connectionFactory.js
