@@ -16,10 +16,10 @@
     "logging": true
   },
   "production": {
-    "username": "hab_29c6f15",
+    "username": "username",
     "password": "af9ecabd",
-    "database": "hab_29c6f15",
-    "host": "hab_29c6f15.mysql.dbaas.com.br",
+    "database": "password",
+    "host": "host",
     "dialect": "mysql",
     "logging": true
   }
