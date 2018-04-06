@@ -268,7 +268,6 @@ module.exports = function(app){
 
         if (dados.composicao_familiar.length > 0) {
           dados.composicao_familiar.map(item => {
-            console.log("item", item);
             item.id = (item.id == "") ? null : item.id;
             item.habitacao_id = dados.id;
             item.dt_nascimento = formatDate(item.dt_nascimento);
@@ -277,6 +276,8 @@ module.exports = function(app){
             item.bpc_valor = formatDecimal(item.bpc_valor);
           });
 
+          console.log("dados.composicao_familiar", dados.composicao_familiar);
+
           let composicaoFamiliarDAO = new app.persistencia.ComposicaoFamiliarDAO(connection);
           composicaoFamiliarDAO.save(dados.composicao_familiar, (error, result) => {
             if (error) {
@@ -284,15 +285,18 @@ module.exports = function(app){
               console.log("error > two", error);
               res.status(400).json(error);
             } else {
-              result.map((rs, i) => {
-                dados.composicao_familiar.map((cf, ii) => {
-                  if (i == ii && cf.id === null) {
-                    cf.id = rs.insertId;
-                  }
-                });
+
+              composicaoFamiliarDAO.getByHabitacaoId(dados.id, (error, result) => {
+                if (error) {
+                  connection.end();
+                  console.log("error > three", error);
+                  res.status(400).json(error);
+                } else {
+                  dados.composicao_familiar = result;
+                  connection.end();
+                  res.status(201).json(dados);
+                }
               });
-              connection.end();
-              res.status(201).json(dados);
             }
           });
         } else {
