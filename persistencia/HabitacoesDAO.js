@@ -77,6 +77,7 @@ habitacoesDAO.prototype.save = function(habitacao, id, callback) {
                                       comprovante_cpf_rg,
                                       comprovante_renda,
                                       comprovante_deficiencia_doenca_grave,
+                                      outras_rendas,
                                       observacao,
                                       createdAt,
                                       updatedAt )
@@ -151,6 +152,7 @@ habitacoesDAO.prototype.save = function(habitacao, id, callback) {
                                        ${habitacao.comprovante_cpf_rg},
                                        ${habitacao.comprovante_renda},
                                        ${habitacao.comprovante_deficiencia_doenca_grave},
+                                       ${habitacao.outras_rendas},
                                       '${habitacao.observacao}',
                                       now(),
                                       now());`;
@@ -227,6 +229,7 @@ habitacoesDAO.prototype.save = function(habitacao, id, callback) {
                    comprovante_cpf_rg                   =  ${habitacao.comprovante_cpf_rg},
                    comprovante_renda                    =  ${habitacao.comprovante_renda},
                    comprovante_deficiencia_doenca_grave =  ${habitacao.comprovante_deficiencia_doenca_grave},
+                   outras_rendas                        =  ${habitacao.outras_rendas},
                    observacao                           = '${habitacao.observacao}',
                    updatedAt                            = now()
              where id = ${habitacao.id};`;

@@ -14,7 +14,7 @@ module.exports = function(app){
 
   app.get('/habitacoes/habitacoes/:page', (req, res) => {
 
-    let limit = 4;
+    let limit = 10;
     let pagina = (isNaN(parseInt(req.params.page))) ? 1 : parseInt(req.params.page);
     pagina = (pagina == 0) ? 1 : pagina;
 
@@ -187,6 +187,7 @@ module.exports = function(app){
     habitacao.bpc_valor_2 = formatDecimal(habitacao.bpc_valor_2);
     habitacao.tempo_moradia_anos = (isNaN(parseInt(habitacao.tempo_moradia_anos))) ? 0 : parseInt(habitacao.tempo_moradia_anos);
     habitacao.tempo_moradia_meses = (isNaN(parseInt(habitacao.tempo_moradia_meses))) ? 0 : parseInt(habitacao.tempo_moradia_meses);
+    habitacao.outras_rendas = formatDecimal(habitacao.outras_rendas);
 
     let connection = app.persistencia.connectionFactory();
     let habitacoesDAO = new app.persistencia.HabitacoesDAO(connection);
@@ -254,6 +255,7 @@ module.exports = function(app){
     habitacao.bpc_valor_2 = formatDecimal(habitacao.bpc_valor_2);
     habitacao.tempo_moradia_anos = (isNaN(parseInt(habitacao.tempo_moradia_anos))) ? 0 : parseInt(habitacao.tempo_moradia_anos);
     habitacao.tempo_moradia_meses = (isNaN(parseInt(habitacao.tempo_moradia_meses))) ? 0 : parseInt(habitacao.tempo_moradia_meses);
+    habitacao.outras_rendas = formatDecimal(habitacao.outras_rendas);
 
     let connection = app.persistencia.connectionFactory();
     let habitacoesDAO = new app.persistencia.HabitacoesDAO(connection);
